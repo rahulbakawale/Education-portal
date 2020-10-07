@@ -1,0 +1,31 @@
+<% @profiles. each do |p| %>
+<%if p.image.present? %>
+	<%= image_tag "http://localhost:3000#{p.image}"%>
+
+<% end %>
+ 
+<li>First name:<%=p.first_name%></li>
+<li>Last name:<%=p.last_name%></li>
+
+<li>Contact num:<%=p.contact_num%></li>
+
+<li>City:<%=p.city%></li>
+
+<li>Pincode:<%=p.pin_code%></li>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+<%#= form_with (url:new_job_path, local: true) do |form| %>
+<%= form_for @job  do |form|%>
+<div class="form-group">
+	<%= form.label :description %>
+	<%= form.text_field :description, autofocus: true, class: "form-control" %>
+</div>
+  <%= form.file_field :image %>
+
+	<%= form.submit %>
+	
+<% end %>

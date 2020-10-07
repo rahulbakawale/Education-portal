@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Education</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+<body>
+
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+
+        </button>
+        <a class="navbar-brand" href="#">Education</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+       <%#=current_user.roles_name%>
+        <% if current_user%>
+        <span class="pull-right"><%= link_to "Logout", destroy_user_session_path, method: :delete,class: 'btn btn-danger btn-xs'%></span>
+         <span class= "pull-right"><%=current_user.email%></span>
+
+         <%end%>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Create Profile", new_profile_path,class: 'btn btn-'  %></li>
+            
+            <li><%= link_to " Create Portfolio",new_portfolio_path, class: 'btn btn-successs'  %></li>
+
+            <li><%= link_to "Link3", "/path3"  %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+        <div class="col-lg-3">
+          <div class="well sidebar-nav">
+            <h3>Sidebar</h3>
+            <ul class="nav nav-list">
+              <li class="nav-header">Sidebar</li>
+              <li><%= link_to "Create Jobs", new_job_path, class: "btn btn-success"  %></li>
+              <li><%= link_to "Link2", "/path2"  %></li>
+              <li><%= link_to "Link3", "/path3"  %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy; Company 2020</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
+
+
+  </head>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+  <body>
+    <%#= yield %>
+  </body>
+</html>

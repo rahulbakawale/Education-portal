@@ -1,0 +1,5 @@
+<% @jobs.each do |u| %>
+<h2><%= u.description %></li></h2>
+	<%= image_tag "http://localhost:3000#{u.image}"%>
+	<%#= link_to "Job_Edit",edit_job_path(u.id), class: "btn btn-primary" %>
+<% end %>
