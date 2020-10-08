@@ -1,16 +1,19 @@
 <%=  form_for  @profile do |f| %>
 
 <div class="form-group">
+  <i class="fa fa-user-circle-o" aria-hidden="true"></i>
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
   </div>
 
  <div class="form-group">
+  <i class="fa fa-user-circle-o" aria-hidden="true"></i>
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: true, class: "form-control"  %>
   </div>
   <div class="form-group">
-    <%= f.label :contact_num %><br />
+    <i class="fa fa-mobile" aria-hidden="true">
+    <%= f.label :contact_num %></i>
     <%= f.text_field :contact_num, autofocus: true, class: "form-control"  %>
   </div>
   <div class="form-group">
@@ -18,9 +21,10 @@
     <%= f.text_field :city, autofocus: true, class: "form-control"  %>
   </div>
   <div class="form-group">
-    <%= f.label :address %><br />
+<i class="fa fa-address-book" aria-hidden="true"></i>
+<%= f.label :address %><br /></i>
     <%= f.text_area :address, autofocus: true, class: "form-control"  %>
-  </div>
+  </div></i>
    <div class="form-group">
     <%= f.label :pin_code %><br />
     <%= f.text_field :pin_code, autofocus: true, class: "form-control"  %>

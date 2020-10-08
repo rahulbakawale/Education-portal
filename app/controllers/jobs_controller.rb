@@ -14,6 +14,7 @@ class JobsController < ApplicationController
 	 def create
 	 	#debugger
 	 	@job = Job.new(job_params)
+	 	@job.hr_id=current_user.id
 	 	if (@job.save)
 	 		redirect_to jobs_path
 	 		flash[:notice]= "Job has successfully cerate"

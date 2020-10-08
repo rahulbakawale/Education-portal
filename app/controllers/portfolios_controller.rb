@@ -6,8 +6,8 @@ class PortfoliosController < ApplicationController
 
 	 def new
 	 	@portfolio  = current_user.build_portfolio
-	 	#1.times { @portfolio.experiences}
-	 	#0.times { @portfolio.educas}
+	 	1.times { @portfolio.experiences}
+	 	1.times { @portfolio.educas}
 
 	 end
 

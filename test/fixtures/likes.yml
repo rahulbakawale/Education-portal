@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  like: MyString
-  portfolio: one
+  user: one
+  job: one
 
 two:
-  like: MyString
-  portfolio: two
+  user: two
+  job: two

@@ -10,17 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_06_120616) do
+ActiveRecord::Schema.define(version: 2020_10_08_065908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
     t.string "comment"
-    t.bigint "portfolio_id", null: false
+    t.bigint "job_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["portfolio_id"], name: "index_comments_on_portfolio_id"
+    t.index ["job_id"], name: "index_comments_on_job_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "educas", force: :cascade do |t|
@@ -42,6 +44,15 @@ ActiveRecord::Schema.define(version: 2020_10_06_120616) do
     t.index ["portfolio_id"], name: "index_experiences_on_portfolio_id"
   end
 
+  create_table "friendlists", force: :cascade do |t|
+    t.string "status"
+    t.integer "friend_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_friendlists_on_user_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
@@ -53,11 +64,12 @@ ActiveRecord::Schema.define(version: 2020_10_06_120616) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.string "like"
-    t.bigint "portfolio_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "job_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["portfolio_id"], name: "index_likes_on_portfolio_id"
+    t.index ["job_id"], name: "index_likes_on_job_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -126,10 +138,13 @@ ActiveRecord::Schema.define(version: 2020_10_06_120616) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
-  add_foreign_key "comments", "portfolios"
+  add_foreign_key "comments", "jobs"
+  add_foreign_key "comments", "users"
   add_foreign_key "educas", "portfolios"
   add_foreign_key "experiences", "portfolios"
-  add_foreign_key "likes", "portfolios"
+  add_foreign_key "friendlists", "users"
+  add_foreign_key "likes", "jobs"
+  add_foreign_key "likes", "users"
   add_foreign_key "portfolios", "users"
   add_foreign_key "profiles", "users"
 end
