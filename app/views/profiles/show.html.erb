@@ -3,4 +3,7 @@
    <%= @profile.contact_num %><br>
    <%= @profile.pin_code %><br>
     <%= @profile.city %><br>
+    <%#if current_user.id == profile.id?%>
+          <% #if current_user.id == current_user.profile.id? %>
     <%= link_to "Edit", edit_profile_path%>
+    <% 	#end %>

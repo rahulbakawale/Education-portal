@@ -8,4 +8,4 @@ class AddAttachmentImageToJobs < ActiveRecord::Migration[6.0]
   def self.down
     remove_attachment :jobs, :image
   end
-end
+end	

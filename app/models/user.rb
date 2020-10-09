@@ -10,9 +10,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :jobs, through: :likes
   has_many :friendlists, dependent: :destroy
+  has_many :jobs, dependent: :destroy
  # accepts_nested_attributes_for :portfolio
  
    def is_user?
-   	 self.roles[0].name === 'user'
+   	 self.roles[0].name.downcase === 'user'
    end
 end

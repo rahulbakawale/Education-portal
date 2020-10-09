@@ -1,5 +1,8 @@
-<h1><center> <div style="background:#50BFE6">
-Job Page </center></h1>
+<h1><center> <div style="background:#50BFE6">Job Page </center></h1>
+
+    <%if !current_user.is_user? %>
+        <%= link_to "Create Jobs", new_job_path, class: "btn btn-success btn-xs"%>
+    <% end %>
 <%=current_user.roles_name%></sapn>
 <% @jobs.each do |u| %>
 <h2><li><%= u.description %></li></h2>
@@ -10,11 +13,13 @@ Job Page </center></h1>
 	        <%else%>
 	       	<%=link_to "unlike", job_like_path(u.id,u.checkLikes(current_user).id), method: :delete, class: "btn btn-danger btn-xs" %>
 	       	<%end%>
-	       	<span class= "pull-right"><%= link_to "Job_Edit",edit_job_path(u.id), class: "btn btn-primary btn-xs" %></span>
 	       	<%= link_to "Who's Comments " ,  job_comments_path(u), class: 'btn btn-primary btn-xs'%>
             <%= link_to 'Write Comments' ,  new_job_comment_path(u), class: 'btn btn-success btn-xs '%>
+            <%#debugger%>
+			
+      <%if u.user.id == current_user.id%>
+      <span class= "pull-right"><%= link_to "Job_Edit",edit_job_path(u.id), class: "btn btn-primary btn-xs" %></span>
+  <%end %>
+       <% end %>
+           
 
-<% end %>
-	    <%#if current_user.hr_id? (current_user) %>
-<%= link_to "Create Jobs", new_job_path%>
-<%#end%>

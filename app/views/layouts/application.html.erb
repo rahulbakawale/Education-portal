@@ -27,8 +27,11 @@
          <%end%>
           <ul class="nav navbar-nav">
             <li><%=link_to "Jobs Page",jobs_path %>
-            <li><%= link_to "Create Profile", new_profile_path,class: 'btn btn-'  %></li>
-            <li><%= link_to " Create Portfolio",new_portfolio_path, class: 'btn btn-successs'  %></li>
+           <li><%= link_to " Create Portfolio",new_portfolio_path, class: 'btn btn-successs'  %></li>
+           <%#if !current_user.try(:is_user?) %>
+              <li><%= link_to "Profile",profile_path(current_user.profile.id), class: "btn btn-succes" if current_user %></li>
+           <% #end %>
+
             <li><%= link_to "Link3", "/path3"  %></li>
           </ul>
         </div>
@@ -46,9 +49,13 @@
             <h3>Sidebar</h3>
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li><%#s= link_to "Create Jobs", new_job_path, class: "btn btn-success"  %></li>
+              <%#if !current_user.try(:is_user?) %>
+              <li><%#= link_to "Create Jobs", new_job_path, class: "btn btn-success"  %></li>
+                <% #end %>
+              <li><%= link_to "Link1", "/path1"  %></li>
               <li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
+            
             </ul>
           </div>
         </div>
@@ -65,6 +72,7 @@
 
 
   </head>
+
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
   <body>

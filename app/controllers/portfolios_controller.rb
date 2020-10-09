@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-
+		#skip_before_action :require_submit_portfolio
 	def index
 		@portfolios = Portfolio.all
 	end

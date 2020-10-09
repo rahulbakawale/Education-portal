@@ -1,7 +1,9 @@
 class FriendlistsController < ApplicationController
 
 	def send_request
-		
+		@user = user.find(params[:user_id])
+		@friendlist = @user.
+
 
       end
 

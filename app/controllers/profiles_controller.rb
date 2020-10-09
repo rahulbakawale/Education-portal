@@ -1,25 +1,22 @@
 class ProfilesController < ApplicationController
-	
-	
-	def index
-		@profiles  = Profile.all
-	end
-
-
-	def new
-		#debugger
-		@profile = current_user.build_profile
-	end
-
+	skip_before_action :require_submit_profile	
+		#def index
+		#	@profiles  = Profile.all
+		#end
 	def create
-    	#debugger
+   #	debugger
 	 	profile = current_user.build_profile(profile_params)
 	 	if (profile.save)
-	 		redirect_to profiles_path
-	 		flash[:notice]= "Profile has Successfuly create"
+	 	redirect_to profile_path(profile.id)
+	 	flash[:notice]= "Profile has Successfuly create"
 	 	else
-	 		render :new
+	 	@profile = current_user.build_profile
+		flash[:alert]=profile.errors.full_messages
+	    render :new
 	 end
+	end	
+	def new
+		@profile = current_user.build_profile
 	end
 
 	def edit
@@ -32,11 +29,13 @@ class ProfilesController < ApplicationController
 
 	 def update
     	#debugger
-	 	if current_user.profile.update(profile_params)
-	 		redirect_to profiles_path
+     	@profile = Profile.find(params[:id])
+		if @profile.update(profile_params)
+	 	redirect_to profile_path	
 	 	flash[:notice]= "Profile has Successfuly update"
 		else
-	 		render :new
+		flash[:alert]="Some Errors"
+		render :edit
 	 end
 	end
 

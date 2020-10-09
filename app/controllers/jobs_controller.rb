@@ -12,9 +12,9 @@ class JobsController < ApplicationController
 	 	@job = Job.find(params[:id])
 	 end
 	 def create
-	 	#debugger
-	 	@job = Job.new(job_params)
-	 	@job.hr_id=current_user.id
+	 	debugger
+
+	 	@job = current_user.jobs.new(job_params)
 	 	if (@job.save)
 	 		redirect_to jobs_path
 	 		flash[:notice]= "Job has successfully cerate"
