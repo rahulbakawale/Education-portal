@@ -21,6 +21,12 @@ def is_user?
 
 
 
+  #def get_profile
+  #  @profile = current_user&.profile
+  #end
+
+
+
 #def requests(current_user)
 #       #return self.frindlists.find_by(user_id: current_user.id)
 #       return self.user.find_by(user_id: current_user.id)
