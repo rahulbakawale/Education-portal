@@ -21,7 +21,7 @@ class FriendlistsController < ApplicationController
 		friendlist = Friendlist.find(params[:friend_id])
 		friendlist.update(status: 'Accepted') if friendlist
 		flash[:notice] = "Requset Accepted"
-		redirect_to notifications_path
+		redirect_to profiles_path
 
 	end
 

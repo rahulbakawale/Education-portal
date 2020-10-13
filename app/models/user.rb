@@ -19,7 +19,6 @@ class User < ApplicationRecord
 
   def requests(user_id)
       self.friendlists.find_by(user_id: user_id)
-       #return self.friendlists.find_by(user_id: current_user.id)
   end
 
   def get_friendlist(user)

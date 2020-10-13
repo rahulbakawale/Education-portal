@@ -5,16 +5,20 @@
     <%= f.text_area :description, autofocus: true, class: "form-control" %>
   </div>
 
- <% f.fields_for :experiences do |experience| %>
-    <%= render 'experience_fields', f: experience %>
-<% end %>
+
+  <% f.fields_for :educas do |educa| %>
+    <%= render 'educa_fields', f: educa %>
+  <% end %>
+  <div class="link">
+    <%= link_to_add_association('Add Educations', f, :educas) %><br />
+  </div>
+
+
+   <% f.fields_for :experiences do |experience| %>
+      <%= render 'experience_fields', f: experience %>
+   <% end %>
   <div class="link">
    <%= link_to_add_association('Add Experience', f, :experiences) %><br />
  </div>
-    <% f.fields_for :educas do |educa| %>
-    <%= render 'educa_fields', f: educa %>
-    <% end %>
-   <%= link_to_add_association('Add Educations', f, :educas) %><br />
-
 <%= f.submit%>
 <%end%>
