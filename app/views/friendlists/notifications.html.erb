@@ -1,0 +1,6 @@
+<% @requests.each do |r| %>
+<%=  link_to "Accepted",accepted_request_path(r.id), class: "btn btn-success btn-xs"%>
+<%=  link_to "Cancle",cancel_request_path(r.id), class: "btn btn-danger btn-xs" %>
+<ui><%= r.user.email  %></ui><br><br><br>
+
+<% end %> <br><br>

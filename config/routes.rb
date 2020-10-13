@@ -1,13 +1,13 @@
-
 Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
-     resources :users  do
-      resources :friendlists
-        #resource :friendlists, only: %i[send_request accepted_request cancel_request]
-      end
-   	   resources :profiles, only: %i[edit  show update new create ]
+      get '/friendlists/send_request/:friend_id' => 'friendlists#send_request', as: :send_request
+      get '/friendlists/accepted_request/:friend_id' =>'friendlists#accepted_request', as: :accepted_request
+      get '/friendlists/cancel_request/:friend_id' =>'friendlists#cancel_request', as: :cancel_request
+      get '/friendlists/notifications' => 'friendlists#notifications', as: :notifications
+
+   	   resources :profiles, only: %i[index edit  show update new create ]
          resources :portfolios, only: %i[index create new update] 
-           resources :jobs, only: %i[index new edit create update ] do
+           resources :jobs, only: %i[index new edit create update ] do         
    	       resources :comments
    	    resources :likes, only: %i[create destroy]
 

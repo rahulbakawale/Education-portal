@@ -1,4 +1,4 @@
 class Friendlist < ApplicationRecord
   belongs_to :user
-  enum status: %i[send_request accepted_request cancel_request]
+  belongs_to :friend, :class_name => 'User', :foreign_key => 'friend_id'
 end

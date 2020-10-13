@@ -1,0 +1,17 @@
+<% @profiles.each do |profile| %>
+<%= image_tag "http://localhost:3000#{profile.image}"%>
+<div class="field">
+  <h1>First name: <%= profile.last_name %></h1>
+  <h1>Last name: <%= profile.first_name %>
+
+              <%#unless profile. requests(user_id)%>
+  	       <span class="pull-right"><%= link_to "Add Friends", send_request_path(profile.user.id),class: "btn btn-success btn-xs"%></span>
+  	        <%#else%>
+
+	       	 <%#=link_to "Cancle Request",send_request_path(profile.user.id. requests(user_id)), method: :delete, class: "btn btn-danger btn-xs" %>
+  <%#end %>
+  </h1><br><br><br>
+<% end %>
+</div>
+
+	  

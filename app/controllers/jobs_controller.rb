@@ -4,7 +4,6 @@ class JobsController < ApplicationController
 	end
 
 	 def new
-	 	#debugger
 	 	@job = Job.new
 	 end
 
@@ -12,8 +11,7 @@ class JobsController < ApplicationController
 	 	@job = Job.find(params[:id])
 	 end
 	 def create
-	 	debugger
-
+	 	
 	 	@job = current_user.jobs.new(job_params)
 	 	if (@job.save)
 	 		redirect_to jobs_path
@@ -33,9 +31,7 @@ class JobsController < ApplicationController
 	 		end
 	 	 end
 
-
-
-
+     
 
 	 private
 		 def job_params

@@ -12,7 +12,7 @@ def require_submit_profile
     end 
   end
   helper_method :require_submit_profile
-  
+
 
 def is_user?
      self.roles[0].name.downcase === 'user'
@@ -20,13 +20,11 @@ def is_user?
    helper_method :is_user?
 
 
+
+#def requests(current_user)
+#       #return self.frindlists.find_by(user_id: current_user.id)
+#       return self.user.find_by(user_id: current_user.id)
 #
-  # def require_submit_portfolio
-  # 	if user_signed_in? && current_user.portfolio.nil?
-  # 		flash[:errors] = "Please First submit portfolio"
-  # 		redirect_to new_portfolio_path
-  # 	end
-  # end
-  # helper_method :require_submit_portfolio
- 
+#      end
+#  
 end

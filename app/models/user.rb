@@ -16,4 +16,9 @@ class User < ApplicationRecord
    def is_user?
    	 self.roles[0].name.downcase === 'user'
    end
+
+  def requests(user_id)
+      current_user.friendlists.find_by(user_id)
+       #return self.friendlists.find_by(user_id: current_user.id)
+  end
 end

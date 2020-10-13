@@ -1,9 +1,7 @@
- <%= @profile.first_name %><br>
-  <%= @profile.last_name %><br>
-   <%= @profile.contact_num %><br>
-   <%= @profile.pin_code %><br>
-    <%= @profile.city %><br>
-    <%#if current_user.id == profile.id?%>
-          <% #if current_user.id == current_user.profile.id? %>
-    <%= link_to "Edit", edit_profile_path%>
-    <% 	#end %>
+<%= image_tag "http://localhost:3000#{@profile.image}"%>
+ <h2>First name: <%= @profile.first_name %><br></h2>
+   <h2>Last name: <%= @profile.last_name %><br></h2>
+    <h2>City: <%= @profile.city %><br>
+    	<%if @profile.user.id == current_user.id%>
+    <%= link_to "Edit", edit_profile_path, class: "btn btn-primary  btn-xs"%>
+    <% 	end %>
