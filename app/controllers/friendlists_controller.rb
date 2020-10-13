@@ -8,14 +8,12 @@ class FriendlistsController < ApplicationController
 		redirect_to profiles_path
 
       end
-
 	def cancel_request
 		#debugger
-		friendlist = Friendlist.find(params[:friend_id])
-		friendlist.update(status: 'Rejected') if friendlist
-
+		friendlist = Friendlist.find(params[:id])
+		friendlist.destroy
 		flash[:notice] = "Request Cancle"
-		redirect_to notifications_path
+		redirect_to profiles_path
 		
 	  end
 
@@ -31,3 +29,5 @@ class FriendlistsController < ApplicationController
    	    @requests = Friendlist.where(friend_id: current_user.id, status: 'Pending')
    end
 end
+
+      

@@ -3,13 +3,13 @@
 <div class="field">
   <h1>First name: <%= profile.last_name %></h1>
   <h1>Last name: <%= profile.first_name %>
-
-              <%#unless profile. requests(user_id)%>
+  		<%#debugger%>
+              <%unless current_user.get_friendlist(profile.user) %>
   	       <span class="pull-right"><%= link_to "Add Friends", send_request_path(profile.user.id),class: "btn btn-success btn-xs"%></span>
-  	        <%#else%>
-
-	       	 <%#=link_to "Cancle Request",send_request_path(profile.user.id. requests(user_id)), method: :delete, class: "btn btn-danger btn-xs" %>
-  <%#end %>
+  	        <%else%>
+  	          <%=link_to  "Accepted",accepted_request_path(profile.user),class: "btn btn-success btn-xs" if current_user.isAcceptButton(current_user)%>
+	       	 <%=link_to "Cancle Request",cancel_request_path(current_user.get_friendlist(profile.user).id), method: :delete, class: "btn btn-danger btn-xs"  %>
+  <%end %>
   </h1><br><br><br>
 <% end %>
 </div>

@@ -18,7 +18,15 @@ class User < ApplicationRecord
    end
 
   def requests(user_id)
-      current_user.friendlists.find_by(user_id)
+      self.friendlists.find_by(user_id: user_id)
        #return self.friendlists.find_by(user_id: current_user.id)
+  end
+
+  def get_friendlist(user)
+    self.friendlists.find_by(friend_id: user.id) || user.friendlists.find_by(friend_id: self.id)
+  end
+
+  def isAcceptButton(user)
+    Friendlist.where(friend_id: user.id, status: 'Pending' )[0]
   end
 end
