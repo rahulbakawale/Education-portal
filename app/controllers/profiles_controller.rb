@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 	skip_before_action :require_submit_profile
-	before_action :profile_find, only: [:show, :edit, :update]
-	before_action :get_profile, only: [:show, :edit, :update]
+	before_action :profile_find, :only => [:show, :edit, :update]
+	before_action :get_profile, :only => [:show, :edit, :update]
 	#before_action only: [:edit]
 
 
@@ -56,39 +56,22 @@ class ProfilesController < ApplicationController
 
 	
 	private
-
-	
-	def profile_find
-		@profile = Profile.find(params[:id])
-	end
-
-	def get_profile
-		#debugger
-		unless(params[:id].to_i === current_user.profile.id)
-	   redirect_to profiles_path 
-	   flash[:alert] = "You are not authrized to edit"
+		def profile_find
+			@profile = Profile.find(params[:id])
 		end
- 		@profile = current_user.profile
 
-	  end
+		def get_profile
+			#debugger
+			unless(params[:id].to_i === current_user.profile.id)
+		   redirect_to profiles_path 
+		   flash[:alert] = "You are not authrized to edit"
+			end
+	 		@profile = current_user.profile
 
-
-	def 
-	 profile_params
-		params.require(:profile).permit(:first_name, :last_name, :contact_num, :address, :city, :pin_code, :image)
-	end
+		  end
+		def 
+		 profile_params
+			params.require(:profile).permit(:first_name, :last_name, :contact_num, :address, :city, :pin_code, :image)
+		end
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-

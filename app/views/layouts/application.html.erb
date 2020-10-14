@@ -9,31 +9,26 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
 <body>
-
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-
         </button>
         <a class="navbar-brand" href="#">Education</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
         <% if current_user%>
         <span class="pull-right"><%= link_to "Logout", destroy_user_session_path, method: :delete,class: 'btn btn-danger btn-xs'%></span>
          <span class= "pull-right"><%=current_user.email%></span>
-
-         <%end%>
-          <ul class="nav navbar-nav">
-            <li><%=link_to "Jobs Page",jobs_path %>
-           <li><%= link_to " Create Portfolio",new_portfolio_path, class: 'btn btn-successs'  %></li>
-           <%#if !current_user.try(:is_user?) %>
-              <%#debugger%>
-              <li><%= link_to "Profile",profile_path(current_user.profile.id), class: "btn btn-succes" if current_user.try(:profile).try(:id) %></li>
-            <li><%= link_to "Add Friends", profiles_path,class: "btn btn-small"%></li>
-            <li><%= link_to "Notification",notifications_path%>
-            
+       <%end%>
+        <ul class="nav navbar-nav">
+          <li><%=link_to "Jobs Page",jobs_path %>           
+         <li><%= link_to " Create Portfolio",new_portfolio_path, class: 'btn btn-successs'  %></li>
+            <li><%= link_to "Profile",profile_path(current_user.profile.id), class: "btn btn-succes" if current_user.try(:profile).try(:id) %></li>
+          <li><%= link_to "Add Friends", profiles_path,class: "btn btn-small"%></li>
+          <li><%= link_to "Notification",notifications_path%>
+          
           </ul>
         </div>
       </div>
@@ -51,29 +46,20 @@
      <h3>Sidebar</h3>
         <ul class="nav nav-list">
           <li class="nav-header">Sidebar</li>
-          <%#if !current_user.try(:is_user?) %>
-          <li><%#= link_to "Create Jobs", new_job_path, class: "btn btn-success"  %></li>
-            <% #end %>
-          
           <li><%= link_to "Link1", "/path1"  %></li>
           <li><%= link_to "Link2", "/path2"  %></li>
           <li><%= link_to "Link3", "/path3"  %></li>
-        
           </ul>
         </div>
       </div>
     </div>
-
       <footer>
         <p>&copy; Company 2020</p>
       </footer>
-
-    </div> <!-- /container -->
-
+    </div> 
   </body>
 </html>
   </head>
-
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
   <body>

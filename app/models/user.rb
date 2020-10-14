@@ -6,11 +6,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :profile
   has_one :portfolio
-  has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :jobs, through: :likes
-  has_many :friendlists, dependent: :destroy
-  has_many :jobs, dependent: :destroy
+  has_many :comments, :dependent => :destroy
+  has_many :likes, :dependent => :destroy
+  has_many :jobs, :through => :likes
+  has_many :friendlists, :dependent => :destroy
+  has_many :jobs, :dependent => :destroy
  # accepts_nested_attributes_for :portfolio
  
    def is_user?
@@ -18,14 +18,14 @@ class User < ApplicationRecord
    end
 
   def requests(user_id)
-      self.friendlists.find_by(user_id: user_id)
+      self.friendlists.find_by(:user_id => user_id)
   end
 
   def get_friendlist(user)
-    self.friendlists.find_by(friend_id: user.id) || user.friendlists.find_by(friend_id: self.id)
+    self.friendlists.find_by(:friend_id => user.id) || user.friendlists.find_by(:friend_id => self.id)
   end
 
   def isAcceptButton(user)
-    Friendlist.where(friend_id: user.id, status: 'Pending' )[0]
+    Friendlist.where(:friend_id => user.id, :status => 'Pending' )[0]
   end
 end

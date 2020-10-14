@@ -5,8 +5,8 @@ class PortfoliosController < ApplicationController
 
 	def new
 	 	@portfolio  = current_user.build_portfolio
-	 	1.times { @portfolio.experiences}
-	 	1.times { @portfolio.educas}
+	 	1.times { @portfolio.experiences }
+	 	1.times { @portfolio.educas }
 	 end
 
    def create
@@ -33,7 +33,7 @@ class PortfoliosController < ApplicationController
 	   private
 	  		def port_params
 	  		#debugger
-			params.require(:portfolio).permit(:description,experiences_attributes:[:experience_year, :skil, :companey_name],educas_attributes:[:university, :passing_year] )
+			params.require(:portfolio).permit(:description,:experiences_attributes => [:experience_year, :skil, :companey_name],:educas_attributes => [:university, :passing_year] )
 
 
 	  end

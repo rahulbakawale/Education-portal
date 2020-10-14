@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 	before_action :authenticate_user!
-	before_action :require_submit_profile, except: [:destroy]
+	before_action :require_submit_profile, :except => [:destroy]
   #before_action :require_submit_portfolio, except: [:destroy]
 
 def require_submit_profile

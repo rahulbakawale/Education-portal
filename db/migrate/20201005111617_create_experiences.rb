@@ -4,7 +4,7 @@ class CreateExperiences < ActiveRecord::Migration[6.0]
       t.string :companey_name
       t.string :skil
       t.integer :experience_year
-      t.references :portfolio, null: false, foreign_key: true
+      t.references :portfolio, :null => false, :foreign_key => true
 
       t.timestamps
     end

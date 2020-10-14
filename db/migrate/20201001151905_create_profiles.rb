@@ -7,8 +7,7 @@ class CreateProfiles < ActiveRecord::Migration[6.0]
       t.string :city
       t.text :address
       t.integer :pin_code
-      t.references :user, null: false, foreign_key: true
-
+      t.references :user, :null => false, :foreign_key => true
       t.timestamps
     end
   end

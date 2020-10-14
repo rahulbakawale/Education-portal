@@ -3,7 +3,7 @@ class CreateEducas < ActiveRecord::Migration[6.0]
     create_table :educas do |t|
       t.string :university
       t.integer :passing_year
-      t.references :portfolio, null: false, foreign_key: true
+      t.references :portfolio, :null => false, :foreign_key => true
 
       t.timestamps
     end
