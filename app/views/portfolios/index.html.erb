@@ -1,0 +1,19 @@
+<%#debugger%>
+<% @portfolios.each do |p| %>
+<% p.experiences.each do |ex| %>
+<% p.educas.each do |ed| %>
+
+
+	<b><h3>Description: <%= p.description%></b></h3><br>
+		<b><h3>experience_year: <%= ex.experience_year%></b></h3><br>
+			<b><h3>Companeyname: <%= ex.companey_name %></b></h3><br>
+	   <b><h3>Skil: <%= ex.skil%></b></h3><br>
+	 <b><h3>University: <%= ed.university%></b></h3><br>
+<b><h3>Passing Year: <%= ed.passing_year%></b></h3><br>
+<%end%>
+	<%end%>
+		<%end%>
+
+
+
+

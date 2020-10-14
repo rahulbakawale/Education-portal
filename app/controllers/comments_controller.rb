@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 
 	def new
 		#@job=Job.find(params[:job_id])
+		@comments = @job.comments
 		@comment = @job.comments.new
 	end	
 
@@ -21,7 +22,8 @@ class CommentsController < ApplicationController
 		@comment.user_id = current_user.id
 		if @comment.save
 			flash[:notice] = " Your Comment successfully Insert "
-			redirect_to job_comments_path(@job)
+			#redirect_to job_comments_path(@job)
+			redirect_to new_job_comment_path
 	   end
     end
 

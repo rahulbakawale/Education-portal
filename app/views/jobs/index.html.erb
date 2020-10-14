@@ -13,7 +13,7 @@
 	        <%else%>
 	       	<%=link_to "unlike", job_like_path(job.id,job.checkLikes(current_user).id), method: :delete, class: "btn btn-danger btn-xs" %>
 	       	<%end%>
-	       	<%= link_to "Who's Comments " ,  job_comments_path(job), class: 'btn btn-primary btn-xs'%>
+	       	<%#=link_to "Who's Comments " ,  job_comments_path(job), class: 'btn btn-primary btn-xs'%>
             <%= link_to 'Write Comments' ,  new_job_comment_path(job), class: 'btn btn-success btn-xs '%>
             <%#debugger%>
 			

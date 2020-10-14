@@ -1,10 +1,15 @@
-<h1><li><%= @job.description%></h2></li>
+<h1><center> <div style="background: #CACFD2">
+Comments Page </center></h1>
+<h1><%= truncate(@job.description, length: 100, separator: ' ') %></h2><br><br>
 
-<%= form_with(model: [@job, @comment], local: true) do |f| %>
-   
+
+<% @comments.each do |comment| %>  
+ <div><h2><ul><b><%= comment.user&.email%><br> <%= comment.comment %></b></ul></div></h2>
+<% end %>
 
 
-  <% if @comment.errors.any?%>
+<%= form_with(model: [@job, @comment], local: true) do |f| %>   
+<% if @comment.errors.any?%>
    <div class="errors">
     <h5><%= @comment.errors.count%></h5>
     <ul>
@@ -14,6 +19,7 @@
     </ul>
    </div>
   <%end%>
+
 
 <div class="form-group">
   <h3> <%= f.label :comment %></h3>
@@ -25,6 +31,3 @@
 <button type="submit" class="btn btn-primary"> Submit</button>
 
 <%end%>
- 
-
-

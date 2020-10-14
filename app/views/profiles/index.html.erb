@@ -1,15 +1,22 @@
+
 <% @profiles.each do |profile| %>
 <%= image_tag "http://localhost:3000#{profile.image}"%>
 <div class="field">
-  <h1>First name: <%= profile.last_name %></h1>
-  <h1>Last name: <%= profile.first_name %>
+  <b><h1>First name: <%= profile.last_name %></b></h1>
+  <b><h1>Last name: <%= profile.first_name %></b>
   		<%#debugger%>
               <%unless current_user.get_friendlist(profile.user) %>
   	       <span class="pull-right"><%= link_to "Add Friends", send_request_path(profile.user.id),class: "btn btn-success btn-xs"%></span>
   	        <%else%>
   	          <%=link_to  "Accepted",accepted_request_path(current_user.get_friendlist(profile.user).id),class: "btn btn-success btn-xs" if current_user.isAcceptButton(current_user)%>
-  	          
-	       	 <%=link_to "Cancle Request",cancel_request_path(current_user.get_friendlist(profile.user).id), method: :delete, class: "btn btn-danger btn-xs"  %>
+              <%#unless current_user.accepted_requests (profile.user) %>
+
+                     <%=link_to "unfollow",cancel_request_path(current_user.get_friendlist(profile.user).id), method: :delete, class: "btn btn-danger btn-xs"  %>
+
+                     <%#else%>
+
+                     <%#=link_to "cancle",cancel_request_path(current_user.get_friendlist(profile.user).id), method: :delete, class: "btn btn-danger btn-xs"  %>
+  <%#end %>
   <%end %>
   </h1><br><br><br>
 <% end %>
