@@ -11,20 +11,38 @@
 <% @jobs.each do |job| %>
 <h2><li><%= job.description %></li></h2>
 	 <%= image_tag "http://localhost:3000#{job.image}"%>
-      <br><%=job.likes.count%><%unless job.checkLikes(current_user) %>
- <%=link_to "Like", job_likes_path(job.id), method: :post, class: "btn btn-success btn-xs" %>
-	 <%else%>
-	   	<%=link_to "unlike", job_like_path(job.id,job.checkLikes(current_user).id), method: :delete, class: "btn btn-danger btn-xs" %>
-	   <%end%>
-
+      <br><%=job.likes.count%>
+    <div class="button-links",job.id >
+     <%= render partial: '/likes/buttons',locals: {job: job} %>
+    </div>
 	       	<%#=link_to "Who's Comments " ,  job_comments_path(job), class: 'btn btn-primary btn-xs'%>
             <%= link_to 'Write Comments' ,  new_job_comment_path(job), class: 'btn btn-success btn-xs '%>
             <%#debugger%>
-			
-      <%if job.user.id == current_user.id%>
+			<%if job.user.id == current_user.id%>
       <span class= "pull-right"><%= link_to "Job_Edit",edit_job_path(job.id), class: "btn btn-primary btn-xs" %></span>
   <%end %>
        <% end %>
            
 
 
+<script type="text/javascript">
+  
+function like_user(id){
+  //debugger
+  $.ajax({
+    url: "/jobs/"+id+"/likes",
+    method: 'post',
+    dataType: 'script',
+    data: {}
+  })
+}
+function unlike_user(job_id, id){
+  //debugger
+  $.ajax({
+    url: "/jobs/"+job_id+"/likes/"+id,
+    method: 'delete',
+    dataType: 'script',
+    data: {}
+  })
+}
+</script>>

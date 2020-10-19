@@ -1,0 +1,7 @@
+<%unless job.checkLikes(current_user) %>
+<%= link_to 'like', 'javascript:void(0)', onclick: "like_user(#{job.id})" ,class: "btn btn-success btn-xs"%>
+<%#=link_to "Like", job_likes_path(job.id), method: :post, class: "btn btn-success btn-xs" %>
+<%else%>
+<%=link_to "unlike", 'javascript:void(0)',onclick: "unlike_user(#{job.id}, #{job.checkLikes(current_user).id})", class: "btn btn-danger btn-xs" %>
+	<%#=link_to "unlike", job_like_path(job.id,job.checkLikes(current_user).id), method: :delete, class: "btn btn-danger btn-xs" %>
+<%end%>
