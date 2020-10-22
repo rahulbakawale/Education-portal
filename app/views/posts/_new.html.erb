@@ -1,0 +1,9 @@
+<%= form_for(@post,:html=>{:id=>"d",:remote=>true}) do |f| %> 
+
+   <div class="form-group">
+    <%= f.label :post %><br />
+    <%= f.text_field :post, autofocus: true, class: "form-control"  %>
+  </div>
+  <%= f.submit %>
+
+<% end %>

@@ -1,1 +1,1 @@
-$('.button-links').html("<%=j render partial: 'buttons' , locals: {job: @job} %>")
+$('#like_job<%=@job.id%>').html("<%=j render partial: 'buttons' , locals: {job: @job} %>")

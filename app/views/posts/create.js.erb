@@ -1,0 +1,6 @@
+<%if @post.id%>
+$("#post_post").val("")
+$('.posts').prepend("<%= render partial: 'post', locals: {post: @post}%>")
+<%else%>
+ alert("<%= @post.errors.full_messages %>")
+<%end%>

@@ -8,6 +8,7 @@ require("@rails/activestorage").start()
 require('jquery')
 require("channels")
 require('packs/jobs');
+require('packs/users');
 
 require("@nathanvda/cocoon")
 

@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :jobs, :through => :likes
   has_many :friendlists, :dependent => :destroy
   has_many :jobs, :dependent => :destroy
+  has_many :posts, :dependent => :destroy
  # accepts_nested_attributes_for :portfolio
  
    def is_user?
