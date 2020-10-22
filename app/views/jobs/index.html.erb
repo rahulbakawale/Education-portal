@@ -10,16 +10,13 @@
 
 <% @jobs.each do |job| %>
 <h2><li><%= job.description %></li></h2>
-	 <%= image_tag "http://localhost:3000#{job.image}"%>
-      <br><%=job.likes.count%>
-      <div id="like_job<%=job.id%>">
-     <%= render partial: '/likes/buttons',locals: {job: job} %>
-         </div>
-
-	       	<%#=link_to "Who's Comments " ,  job_comments_path(job), class: 'btn btn-primary btn-xs'%>
+	 <%= image_tag "http://localhost:3000#{job.image}"%><br>
+       <div id="like_job<%=job.id%>">
+          <%= render partial: '/likes/buttons',locals: {job: job} %>
+      </div>
+          <%#=link_to "Who's Comments " ,  job_comments_path(job), class: 'btn btn-primary btn-xs'%>
             <%= link_to 'Write Comments' ,new_job_comment_path(job), class: 'btn btn-success btn-xs '%>
-
-            <%#debugger%>
+        <%#debugger%>
 			<%if job.user.id == current_user.id%>
       <span class= "pull-right"><%= link_to "Job_Edit",edit_job_path(job.id), class: "btn btn-primary btn-xs" %></span>
   <%end %>
@@ -47,4 +44,4 @@ function unlike_user(job_id, id){
     data: {}
   })
 }
-</script>>
+</script>

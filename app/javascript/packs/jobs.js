@@ -9,3 +9,12 @@ function like_user(id){
 	})
 }
 
+function unlike_user(job_id, id){
+	$.ajax({
+		url: "/jobs/"+id+"/likes/:id",
+		method: 'delete',
+		dataType: 'script',
+		data: {}	
+	})
+}
+
