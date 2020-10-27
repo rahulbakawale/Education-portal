@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     # get '/friendlists/cancel_request/:friend_id' =>'friendlists#cancel_request', as: :cancel_request
       delete '/friendlists/cancel_request/:id' =>'friendlists#cancel_request', :as => :cancel_request
       get '/friendlists/notifications' => 'friendlists#notifications', :as => :notifications 
-      resources :posts, :only => %i[ index  new create destroy]
+      resources :posts, :only => %i[ index new create destroy] do 
+      resources :reviews
+        end 
    	   resources :profiles, :only => %i[index edit  show update new create ]
          resources :portfolios, :only => %i[index create new update] 
            resources :jobs, :only => %i[index new edit create update ] do         

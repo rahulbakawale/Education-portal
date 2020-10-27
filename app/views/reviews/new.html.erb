@@ -1,0 +1,17 @@
+
+<h1><center> <div style="background: #CACFD2">
+Review Page </center></h1>
+<%= form_for(@review ,url:post_reviews_path(@post),:html=>{:id=>"c",:remote=>true}) do |f| %> 
+ <div class="form-group">
+    <%= f.label :review %><br />
+    <%= f.text_field :review, autofocus: true, class: "form-control"  %>
+  </div>
+  <%= f.submit_tag 'Reviews'%>
+  <% end %>
+  	
+<div class="reviews">
+	<%= @reviews.each do |review| %>
+		<%= render partial: 'review',locals: {review: review} %>
+	<%end%>
+</div>
+<div>

@@ -1,4 +1,3 @@
-
 function like_user(id){
 	//debugger
 	$.ajax({
