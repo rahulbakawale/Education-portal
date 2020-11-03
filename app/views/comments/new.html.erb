@@ -17,7 +17,7 @@ Comments Page </center></h1>
 
 
 <div class="comments">
-	<%= @comments.map do |comment| %>
+	<% @comments.map do |comment| %>
 		<%= render partial: 'comment',locals: {comment: comment} %>
 	<%end%>
 </div>

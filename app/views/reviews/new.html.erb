@@ -10,8 +10,8 @@ Review Page </center></h1>
   <% end %>
   	
 <div class="reviews">
-	<%= @reviews.each do |review| %>
+	<% @reviews.each do |review| %>
 		<%= render partial: 'review',locals: {review: review} %>
 	<%end%>
 </div>
-<div>
+<div

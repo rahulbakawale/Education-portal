@@ -1,3 +1,4 @@
+ <%=job.likes.count%>
 <%unless job.checkLikes(current_user) %>
 
 <%= link_to 'like', 'javascript:void(0)', onclick: "like_user(#{job.id})" ,class: "btn btn-success btn-xs"%>

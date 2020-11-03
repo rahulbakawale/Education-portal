@@ -13,7 +13,6 @@
 	 <%= image_tag "http://localhost:3000#{job.image}"%><br>
 
        <div id="like_job<%=job.id%>">
-        <%=job.likes.count%>
           <%= render partial: '/likes/buttons',locals: {job: job} %>
       </div>
           <%#=link_to "Who's Comments " ,  job_comments_path(job), class: 'btn btn-primary btn-xs'%>
