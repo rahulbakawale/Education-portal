@@ -19,6 +19,15 @@ def is_user?
    end
    helper_method :is_user?
 
+   def is_portfolio?
+  # debugger
+    if user_signed_in? && current_user.portfolio.present?
+      flash[:notice]="Plase submited portfolio"
+      end
+   end
+   helper_method :is_portfolio?
+
+
 
 
   #def get_profile
