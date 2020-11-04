@@ -1,5 +1,8 @@
 class JobsController < ApplicationController
 	def index
+		@comment = current_user.comments.new
+		@comment.toggle!(:active)
+
 		@jobs = Job.all
 	end
 

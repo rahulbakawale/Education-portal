@@ -3,9 +3,6 @@
 <%if !current_user.is_user? %>
         <%= link_to "Create Jobs", new_job_path, class: "btn btn-success btn-xs"%>
     <% end %>
-
-
-
 <span><%= current_user.roles_name%></sapn>
 
 <% @jobs.each do |job| %>
@@ -15,16 +12,25 @@
        <div id="like_job<%=job.id%>">
           <%= render partial: '/likes/buttons',locals: {job: job} %>
       </div>
+
+      <div id="Comment_job<%=job.id%>">
+        <%= render partial: '/comments/new',locals: {job: job} %>
+      </div>
+      <div id="comments_j_<%=job.id%>">
+        <%job.comments.each do |comment| %>
+          <%= render partial: '/comments/comment', locals: {comment: comment } %>
+        <%end%>
+      <div>
+
+
           <%#=link_to "Who's Comments " ,  job_comments_path(job), class: 'btn btn-primary btn-xs'%>
-            <%= link_to 'Write Comments' ,new_job_comment_path(job), class: 'btn btn-success btn-xs '%>
+            <%#= link_to 'Write Comments' ,new_job_comment_path(job), class: 'btn btn-success btn-xs '%>
         <%#debugger%>
 			<%if job.user.id == current_user.id%>
       <span class= "pull-right"><%= link_to "Job_Edit",edit_job_path(job.id), class: "btn btn-primary btn-xs" %></span>
   <%end %>
        <% end %>
            
-
-
 <script type="text/javascript">
   
 function like_user(id){

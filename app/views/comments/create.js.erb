@@ -1,7 +1,7 @@
 <%#debugger%>
 <%if @comment.id%>
 $("#comment_comment").val("")
-$('.comments').prepend("<%=j render partial: 'comment', locals: {comment: @comment}%>")
+$('#comments_j_<%=@job.id%>').prepend("<%=j render partial: 'comment', locals: {comment: @comment}%>")
 <%else%>
  alert("<%= @comment.errors.full_messages %>")
 <%end%>
