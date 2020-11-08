@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :registrations => "registrations" }
+    #devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  devise_for :users, :controllers => { :registrations => "registrations",omniauth_callbacks: 'users/omniauth_callbacks'}
       get '/friendlists/send_request/:friend_id' => 'friendlists#send_request', :as => :send_request
       get '/friendlists/accepted_request/:friend_id' =>'friendlists#accepted_request', :as => :accepted_request
     # get '/friendlists/cancel_request/:friend_id' =>'friendlists#cancel_request', as: :cancel_request

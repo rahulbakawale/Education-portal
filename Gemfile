@@ -5,6 +5,9 @@ ruby '2.6.5'
 gem "cocoon"
 gem "rolify"
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+#gem 'omniauth-facebook'
 gem 'carrierwave'
 gem "paperclip"
 gem "twitter-bootstrap-rails"

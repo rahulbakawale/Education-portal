@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 	def index
 		@comment = current_user.comments.new
-		@comment.toggle!(:active)
+		   #@comment.toggle!(:active)
 
 		@jobs = Job.all
 	end
@@ -18,7 +18,7 @@ class JobsController < ApplicationController
 	 	@job = current_user.jobs.new(job_params)
 	 	if (@job.save)
 	 		redirect_to jobs_path
-	 		flash[:notice]= "Job has successfully cerate"
+	 		flash[:notice]= "Job has successfully create"
 	 		else
 	 		render :new
 	 	end
