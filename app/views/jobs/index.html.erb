@@ -1,4 +1,6 @@
 <h1><center> <div style="background:#50BFE6">Job Page </center></h1>
+<%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), express_new_order_path %>
+
 
 <%if !current_user.is_user? %>
         <%= link_to "Create Jobs", new_job_path, class: "btn btn-success btn-xs"%>

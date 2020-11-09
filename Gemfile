@@ -8,7 +8,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-
+gem 'activemerchant'
 #gem 'omniauth-facebook'
 gem 'carrierwave'
 gem "paperclip"
