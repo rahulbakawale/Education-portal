@@ -5,8 +5,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2] # add these two!
-
-
   has_one :profile
   has_one :portfolio
   has_many :comments, :dependent => :destroy
@@ -16,6 +14,8 @@ class User < ApplicationRecord
   has_many :jobs, :dependent => :destroy
   has_many :posts, :dependent => :destroy
  # accepts_nested_attributes_for :portfolio
+
+ 
  def self.from_omniauth(auth)
           where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
           user.email = auth.info.email
@@ -36,6 +36,10 @@ class User < ApplicationRecord
 
   def requests(user_id)
       self.friendlists.find_by(:user_id => user_id)
+  end
+
+    def perform(user)
+    # do something with the user
   end
 
   def get_friendlist(user)

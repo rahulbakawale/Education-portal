@@ -1,14 +1,12 @@
 <h1><center> <div style="background:#50BFE6">Job Page </center></h1>
-<%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), express_new_order_path %>
-
-
 <%if !current_user.is_user? %>
         <%= link_to "Create Jobs", new_job_path, class: "btn btn-success btn-xs"%>
     <% end %>
-<span><%= current_user.roles_name%></sapn>
-
+  <span><%= current_user.roles_name%></sapn>
+    <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"),express_new_order_path %>
 <% @jobs.each do |job| %>
 <h2><li><%= job.description %></li></h2>
+
 	 <%= image_tag "http://localhost:3000#{job.image}"%><br>
 
        <div id="like_job<%=job.id%>">
@@ -23,8 +21,6 @@
           <%= render partial: '/comments/comment', locals: {comment: comment } %>
         <%end%>
       <div>
-
-
           <%#=link_to "Who's Comments " ,  job_comments_path(job), class: 'btn btn-primary btn-xs'%>
             <%#= link_to 'Write Comments' ,new_job_comment_path(job), class: 'btn btn-success btn-xs '%>
         <%#debugger%>

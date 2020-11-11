@@ -26,13 +26,11 @@
           <li><%=link_to "Jobs Page",jobs_path %> 
           <%unless is_portfolio?%>        
              <li><%= link_to " Create Portfolio",new_portfolio_path, class: 'btn btn-successs'%></li>
-            
-         <% end %>
+        <% end %>
 
             <li><%= link_to "Profile",profile_path(current_user.profile.id), class: "btn btn-succes" if current_user.try(:profile).try(:id) %></li>
           <li><%= link_to "Add Friends", profiles_path,class: "btn btn-small"%></li>
           <li><%= link_to "Notification",notifications_path%>
-          
           </ul>
         </div>
       </div>
@@ -51,7 +49,6 @@
         <ul class="nav nav-list">
           <li class="nav-header">Sidebar</li>
           <li><%= link_to "Post",posts_path, class: 'brn btn-succes' %></li>
-
           <li><%= link_to "Link2", "/path2"  %></li>
           <li><%= link_to "Link3", "/path3"  %></li>
           </ul>
