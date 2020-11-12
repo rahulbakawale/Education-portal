@@ -20,6 +20,8 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
         <% if current_user%>
         <span class="pull-right"><%= link_to "Logout", destroy_user_session_path, method: :delete,class: 'btn btn-danger btn-xs'%></span>
+               
+
          <span class= "pull-right"><%=current_user.email%></span>
        <%end%>
         <ul class="nav navbar-nav">
