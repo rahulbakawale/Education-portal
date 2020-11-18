@@ -1,9 +1,9 @@
 
 class UserMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'bakawale51@gmail.com'
  
-  def welcome_email
+  def welcome_email(user)
     @url  = 'http://example.com/login'
-    mail(to: 'testyze@mailinator.com', subject: 'Welcome to My Awesome Site')
+    mail(to: 'rahul@kliftox.com', subject: 'Massege by 	sendgrid.net')
   end
 end

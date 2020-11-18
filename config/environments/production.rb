@@ -18,9 +18,10 @@ Rails.application.configure do
 config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :production
   paypal_options = {
-    :login => "seller_1229899173_biz_api1.railscasts.com",
-    :password => "FXWU58S7KXFC6HBE",
+    :login => "https://developer.paypal.com/developer/applications/edit/SB:QVp2SUROblVOc1owS0Izc191QV9YY1BkM0doUl8xSFUzWUJjZEwzY1dNS0x1c3hnUUVXNGJLeWNNbHdQZWRtVk5ja1QtVjloS1h3QVdUWU4=",
+    :password => "BcaStudy@123",
     :signature => "AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu"
+  #  AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu
   }
   ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
   ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)

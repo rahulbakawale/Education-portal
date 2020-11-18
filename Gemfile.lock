@@ -119,6 +119,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
+    json (2.3.1)
     jwt (2.2.2)
     less (2.6.0)
       commonjs (~> 0.2.7)
@@ -257,6 +258,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    sendgrid (1.2.4)
+      json
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -337,6 +340,7 @@ DEPENDENCIES
   rubocop
   sass-rails (>= 6)
   selenium-webdriver
+  sendgrid
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)

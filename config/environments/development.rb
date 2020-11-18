@@ -56,17 +56,29 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
 
+#
+#config.action_mailer.delivery_method = :smtp
+#config.action_mailer.smtp_settings = {
+#  address: "smtp.gmail.com",
+#  domain: "gmail.com",
+#  port: 587,
+#  user_name: "bakawale51@gmail.com",
+#  password: "sakshi010221",
+#  authentication: 'plain',
+#  enable_starttls_auto: true
+#}
 
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  address: "smtp.gmail.com",
-  domain: "gmail.com",
-  port: 587,
-  user_name: "bakawale51@gmail.com",
-  password: "sakshi010221",
-  authentication: 'plain',
-  enable_starttls_auto: true
-}
+
+ ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address:        'smtp.sendgrid.net',
+    port:           587,
+    authentication: :plain,
+    user_name:      'bakawale51@gmail.com',
+    password:       'sakshi0102219799',
+    domain:         'mail.com',
+    enable_starttls_auto: true
+  }
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
@@ -75,11 +87,12 @@ config.action_mailer.smtp_settings = {
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-
+##AV6B1Fe-03phDkK7Jh5cVhAHSnS5mctmTtmtEAM4trO5-2FTJMukzmIJ5diPZ2I7ooHV20dZeE1Qajpm
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
     paypal_options = {
-      :login => "seller_1229899173_biz_api1.railscasts.com",
+     # seller_1229899173_biz_api1.railscasts.com
+      :login => "4KRXMXPP4FR8Q",
       :password => "FXWU58S7KXFC6HBE",
       :signature => "AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu"
     }
@@ -87,3 +100,5 @@ config.action_mailer.smtp_settings = {
     ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
   end
 end
+
+#AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu

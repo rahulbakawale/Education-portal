@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem "paperclip"
 gem "twitter-bootstrap-rails"
 gem 'daemons'
+gem 'sendgrid'
 gem 'pg'
 
 gem 'rubocop', :require => false
