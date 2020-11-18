@@ -2,9 +2,12 @@ class JobsController < ApplicationController
 	def index
 		@comment = current_user.comments.new
 		   #@comment.toggle!(:active)
-
 		@jobs = Job.all
 	end
+	 def usermailer
+		 debugger
+         UserMailer.welcome_email(user).deliver_now
+       end
 
 	 def new
 	 	@job = Job.new
@@ -40,4 +43,6 @@ class JobsController < ApplicationController
 		 def job_params
 		 	params.require(:job).permit( :description, :image)
 		 end
+
+
 end

@@ -10,13 +10,16 @@ Rails.application.routes.draw do
       get '/friendlists/accepted_request/:friend_id' =>'friendlists#accepted_request', :as => :accepted_request
     # get '/friendlists/cancel_request/:friend_id' =>'friendlists#cancel_request', as: :cancel_request
       delete '/friendlists/cancel_request/:id' =>'friendlists#cancel_request', :as => :cancel_request
-      get '/friendlists/notifications' => 'friendlists#notifications', :as => :notifications 
+      get '/friendlists/notifications' => 'friendlists#notifications', :as => :notifications
+      get '/home/usermailer' => 'home#usermailer', as: 'usermailer'
+         #get '/movies/new'  => 'movies#new', as: 'new_movie'
+ 
       resources :posts, :only => %i[ index new create destroy] do 
       resources :reviews
         end 
    	   resources :profiles, :only => %i[index edit  show update new create ]
          resources :portfolios, :only => %i[index create new update] 
-           resources :jobs, :only => %i[index new edit create update ] do         
+           resources :jobs, :only => %i[index new edit create update] do         
    	       resources :comments
    	    resources :likes, :only => %i[create destroy]
 
