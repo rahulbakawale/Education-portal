@@ -12,7 +12,6 @@ Rails.application.routes.draw do
       delete '/friendlists/cancel_request/:id' =>'friendlists#cancel_request', :as => :cancel_request
       get '/friendlists/notifications' => 'friendlists#notifications', :as => :notifications
       get '/home/usermailer' => 'home#usermailer', as: 'usermailer'
-         #get '/movies/new'  => 'movies#new', as: 'new_movie'
  
       resources :posts, :only => %i[ index new create destroy] do 
       resources :reviews
@@ -28,4 +27,3 @@ Rails.application.routes.draw do
 
        # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
-#'user_facebook,google_oauth2_omniauth_authorize'

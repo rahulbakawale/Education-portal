@@ -7,5 +7,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require gmaps/google
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 

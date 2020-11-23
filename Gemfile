@@ -16,6 +16,8 @@ gem "twitter-bootstrap-rails"
 gem 'daemons'
 gem 'sendgrid'
 gem 'pg'
+gem 'gmaps4rails'
+
 
 gem 'rubocop', :require => false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

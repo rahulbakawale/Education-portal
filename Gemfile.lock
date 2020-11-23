@@ -111,6 +111,7 @@ GEM
     ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     hashie (4.1.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
@@ -326,6 +327,7 @@ DEPENDENCIES
   daemons
   delayed_job_active_record
   devise
+  gmaps4rails
   jbuilder (~> 2.7)
   less-rails
   listen (~> 3.2)

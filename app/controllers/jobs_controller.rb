@@ -4,10 +4,7 @@ class JobsController < ApplicationController
 		   #@comment.toggle!(:active)
 		@jobs = Job.all
 	end
-	 def usermailer
-		 debugger
-         UserMailer.welcome_email(user).deliver_now
-       end
+	
 
 	 def new
 	 	@job = Job.new

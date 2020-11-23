@@ -56,30 +56,45 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
 
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  address: "smtp.gmail.com",
+  domain: "gmail.com",
+  port: 587,
+  user_name: "bakawale51@gmail.com",
+  password: "sakshi010221",
+  authentication: 'plain',
+  enable_starttls_auto: true
+}
+
+
+#ActionMailer::Base.delivery_method = :smtp
+#  ActionMailer::Base.smtp_settings = {
+#    address:        'smtp.sendgrid.net',
+#    port:            587,
+#    authentication: :plain,
+#    user_name:      'bakawale51@gmail.com',
+#    password:       'Rahulkliftox1409',
+#    domain:         'mail.com',
+#    enable_starttls_auto: true
+#  }
+
+
+
+
+ # ActionMailer::Base.delivery_method = :smtp
+ # ActionMailer::Base.smtp_settings = {
+ #   address:        'smtp.sendgrid.net',
+ #   port:           587,
+ #   authentication: :plain,
+ #   user_name:      'bakawale51@gmail.com',
+ #   #password:       'sakshi0102219799',
+ #   user_name:      'm_RZ9uvKSW2-cPxkFiipzw',
+ #   password:       ' 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',
+ #   domain:         'mail.com',
+ #   enable_starttls_auto: true
+ # }
 #
-#config.action_mailer.delivery_method = :smtp
-#config.action_mailer.smtp_settings = {
-#  address: "smtp.gmail.com",
-#  domain: "gmail.com",
-#  port: 587,
-#  user_name: "bakawale51@gmail.com",
-#  password: "sakshi010221",
-#  authentication: 'plain',
-#  enable_starttls_auto: true
-#}
-
-
- ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    address:        'smtp.sendgrid.net',
-    port:           587,
-    authentication: :plain,
-    user_name:      'bakawale51@gmail.com',
-    password:       'sakshi0102219799',
-    domain:         'mail.com',
-    enable_starttls_auto: true
-  }
-
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
 
