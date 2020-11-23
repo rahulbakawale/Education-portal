@@ -88,7 +88,7 @@ config.action_mailer.smtp_settings = {
  #   port:           587,
  #   authentication: :plain,
  #   user_name:      'bakawale51@gmail.com',
- #   #password:       'sakshi0102219799',
+ #   #password:       '',
  #   user_name:      'm_RZ9uvKSW2-cPxkFiipzw',
  #   password:       ' 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',
  #   domain:         'mail.com',
