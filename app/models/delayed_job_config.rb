@@ -9,7 +9,3 @@ Delayed::Worker.default_queue_name = 'default'
 Delayed::Worker.delay_jobs = !Rails.env.test?
 Delayed::Worker.raise_signal_exceptions = :term
 Delayed::Worker.logger = Logger.new(File.join(Rails.root, 'log', 'delayed_job.log'))
- 
-In order to menage background processes we will add `gem to our Gemfile. That makes us completely ready to create and test out our first background job. Create the Job
- 
-rails generate job teams_statistic 
