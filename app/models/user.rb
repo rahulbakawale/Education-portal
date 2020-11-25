@@ -29,29 +29,29 @@ class User < ApplicationRecord
         end
       end
  
-   def is_user?
-    debugger
-    self.roles[0]
-   	# self.roles[0].name.downcase === 'user'
-   end
+ def is_user?
+  #debugger
+  self.roles[0]
+ 	# self.roles[0].name.downcase === 'user'
+ end
 
-   def is_hr?
-      self.has_role? :HR
-   end
+ def is_hr?
+    self.has_role? :HR
+ end
 
-  def requests(user_id)
-      self.friendlists.find_by(:user_id => user_id)
-  end
+def requests(user_id)
+    self.friendlists.find_by(:user_id => user_id)
+end
 
-    def perform(user)
-    # do something with the user
-  end
+  def perform(user)
+  # do something with the user
+end
 
-  def get_friendlist(user)
-    self.friendlists.find_by(:friend_id => user.id) || user.friendlists.find_by(:friend_id => self.id)
-  end
+def get_friendlist(user)
+  self.friendlists.find_by(:friend_id => user.id) || user.friendlists.find_by(:friend_id => self.id)
+end
 
-  def isAcceptButton(user)
-    Friendlist.where(:friend_id => user.id, :status => 'Pending' )[0]
-  end
+def isAcceptButton(user)
+  Friendlist.where(:friend_id => user.id, :status => 'Pending' )[0]
+end
 end
