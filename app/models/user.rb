@@ -30,8 +30,13 @@ class User < ApplicationRecord
       end
  
    def is_user?
+    debugger
     self.roles[0]
    	# self.roles[0].name.downcase === 'user'
+   end
+
+   def is_hr?
+      self.has_role? :HR
    end
 
   def requests(user_id)
