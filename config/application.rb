@@ -12,6 +12,9 @@ module Education
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.active_job.queue_adapter = :delayed_job
+    config.serve_static_assets = true  # deprecated
+	config.serve_static_files = true   # Ok
+
 
 
     # Settings in config/environments/* take precedence over those specified here.
