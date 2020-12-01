@@ -23,7 +23,28 @@ Rails.application.routes.draw do
    	    resources :likes, :only => %i[create destroy]
 
    	end
-     root :to => "jobs#index"
+    root :to => "jobs#index"
+
+
+    # APi Routing 
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do 
+      resources :orders
+    end
+
+  end
+
+
+  namespace :api1, defaults: { format: :json } do
+    namespace :v2 do
+    resources :users
+  end
+end
 
        # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+
+
+#https://www.pluralsight.com/guides/token-based-authentication-with-ruby-on-rails-5-api
