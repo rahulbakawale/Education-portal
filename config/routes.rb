@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
- # mount_devise_token_auth_for 'User', at: 'auth'
  #devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  devise_for :users, :controllers => { :registrations => "registrations",omniauth_callbacks: 'users/omniauth_callbacks'}
+ devise_for :users, :controllers => { :registrations => "registrations",omniauth_callbacks: 'users/omniauth_callbacks'}
   resources :orders, :new => { :express => :get }
 
       get 'express/new/orders' => 'orders#express', :as => :express_new_order
@@ -30,13 +29,18 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do 
+      #post 'auth/sign_in' => 'session#create'
+        mount_devise_token_auth_for 'User', at: 'auth',controllers: {
+        sessions:  'api/v1/sessions'
+      }
       resources :orders
     end
   end
-
-       # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 
 
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 #https://www.pluralsight.com/guides/token-based-authentication-with-ruby-on-rails-5-api
+#problem for the token
+#https://stackoverflow.com/questions/39191779/devise-token-auth-how-to-identify-a-user-by-token

@@ -1,5 +1,9 @@
 class User < ApplicationRecord
+  #it's for device tokenauth
+  extend Devise::Models
+  include DeviseTokenAuth::Concerns::User
   rolify
+  #include DeviseTokenAuth::Concerns::ActiveRecordSupport
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -55,3 +59,8 @@ def isAcceptButton(user)
   Friendlist.where(:friend_id => user.id, :status => 'Pending' )[0]
 end
 end
+
+
+
+
+

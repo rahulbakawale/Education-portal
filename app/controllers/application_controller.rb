@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
+
   #include DeviseTokenAuth::Concerns::SetUserByToken
-	before_action :authenticate_user!
-	before_action :require_submit_profile, :except => [:destroy]
+  protect_from_forgery unless: -> { request.format.json? }
+
+	before_action :authenticate_user!, unless: -> { request.format.json? }
+	before_action :require_submit_profile, :except => [:destroy],  unless: -> { request.format.json? }
   #before_action :require_submit_portfolio, except: [:destroy]
 
 def require_submit_profile

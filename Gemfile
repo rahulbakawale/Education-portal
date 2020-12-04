@@ -17,8 +17,9 @@ gem 'daemons'
 gem 'sendgrid'
 gem 'pg'
 gem 'gmaps4rails'
+# this both used to devise_token_aauth
 gem 'devise_token_auth'
-
+gem 'rack-cors'
 
 
 

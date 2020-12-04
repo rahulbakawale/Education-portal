@@ -1,20 +1,36 @@
 class Api::V1::ApiController < ApplicationController
-	skip_before_action :authenticate_user!
-    before_action :authenticate_api_user!
-	#before_action :http_auth_header	
-	
+
+	before_action :authenticate_api_user!
+    #before_action :authenticate_api_user!
 
 	def authenticate_api_user!
 		#debugger
-		#debugger
-		if(request.headers['Authorization'])
-			user = User.find(request.headers['Authorization'])  rescue nil
-			if(!user)
-				render json: { error: 'unauthorization'},status: 400
-			end
-		else
-			render json: { error: 'Token is missing'},status: 400
+		auth_token = request.headers["auth-token"]
+		token_type = request.headers["token-type"]
+		client = request.headers["client"]
+		expiry = request.headers["expiry"]
+		uid = request.headers['uid']
+		user = User.find_by_uid(uid)
+		if !user || !user.valid_token?(auth_token, client)
+		  render json: {error: "Usuario no autorizado."}, status: 401
 		end
+		
+	end
+
+	def current_user
+		#debugger
+		auth_token = request.headers["auth-token"]
+		token_type = request.headers["token-type"]
+		client = request.headers["client"]
+		expiry = request.headers["expiry"]
+		uid = request.headers['uid']
+		user = User.find_by_uid(uid)
+		if !user || !user.valid_token?(auth_token, client)
+		  return nil #render json: {error: "Usuario no autorizado."}, status: 401
+		else
+			return user
+		end
+		
 	end
  
 end
