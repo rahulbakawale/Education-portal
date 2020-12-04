@@ -17,6 +17,8 @@ gem 'daemons'
 gem 'sendgrid'
 gem 'pg'
 gem 'gmaps4rails'
+gem 'devise_token_auth'
+
 
 
 

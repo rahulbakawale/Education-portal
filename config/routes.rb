@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-    #devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
+ # mount_devise_token_auth_for 'User', at: 'auth'
+ #devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_for :users, :controllers => { :registrations => "registrations",omniauth_callbacks: 'users/omniauth_callbacks'}
   resources :orders, :new => { :express => :get }
 
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
       get '/friendlists/send_request/:friend_id' => 'friendlists#send_request', :as => :send_request
       get '/friendlists/accepted_request/:friend_id' =>'friendlists#accepted_request', :as => :accepted_request
-    # get '/friendlists/cancel_request/:friend_id' =>'friendlists#cancel_request', as: :cancel_request
+     #get '/friendlists/cancel_request/:friend_id' =>'friendlists#cancel_request', as: :cancel_request
       delete '/friendlists/cancel_request/:id' =>'friendlists#cancel_request', :as => :cancel_request
       get '/friendlists/notifications' => 'friendlists#notifications', :as => :notifications
       get '/home/usermailer' => 'home#usermailer', as: 'usermailer'
@@ -32,15 +32,7 @@ Rails.application.routes.draw do
     namespace :v1 do 
       resources :orders
     end
-
   end
-
-
-  namespace :api1, defaults: { format: :json } do
-    namespace :v2 do
-    resources :users
-  end
-end
 
        # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

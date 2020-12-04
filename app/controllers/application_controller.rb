@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  #include DeviseTokenAuth::Concerns::SetUserByToken
 	before_action :authenticate_user!
 	before_action :require_submit_profile, :except => [:destroy]
   #before_action :require_submit_portfolio, except: [:destroy]
@@ -27,14 +28,7 @@ def is_user?
    end
    helper_method :is_portfolio?
 
-
-
-
-
-  
-
-
-
+   
   #def get_profile
   #  @profile = current_user&.profile
   #end

@@ -19,3 +19,6 @@ class Api::V1::ApiController < ApplicationController
  
 end
 
+
+#http://blog.magmalabs.io/2018/07/03/use-devise-devise_token_auth.html
+##https://dev.to/risafj/guide-to-devisetokenauth-simple-authentication-in-rails-api-pfj
