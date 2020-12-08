@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
+  
+  
  #devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
  devise_for :users, :controllers => { :registrations => "registrations",omniauth_callbacks: 'users/omniauth_callbacks'}
   resources :orders, :new => { :express => :get }
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do 
+
       #post 'auth/sign_in' => 'session#create'
         mount_devise_token_auth_for 'User', at: 'auth',controllers: {
         sessions:  'api/v1/sessions'

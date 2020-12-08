@@ -5,6 +5,7 @@ class Api::V1::ApiController < ApplicationController
 
 	def authenticate_api_user!
 		#debugger
+		#debugger
 		auth_token = request.headers["auth-token"]
 		token_type = request.headers["token-type"]
 		client = request.headers["client"]

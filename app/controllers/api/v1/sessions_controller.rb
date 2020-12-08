@@ -1,11 +1,14 @@
 
 class Api::V1::SessionsController < DeviseTokenAuth::SessionsController
-	def new 
+	# skip_before_action :authenticate_api_user!
+
+  def new 
 		super
 	end
 
 	def create
 	    # Check
+     # debugger
       field = (resource_params.keys.map(&:to_sym) & resource_class.authentication_keys).first
       @resource = nil
       if field

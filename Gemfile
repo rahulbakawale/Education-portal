@@ -20,6 +20,8 @@ gem 'gmaps4rails'
 # this both used to devise_token_aauth
 gem 'devise_token_auth'
 gem 'rack-cors'
+gem 'rswag'
+
 
 
 
@@ -52,6 +54,8 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem 'rails_12factor', group: :production
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rspec-rails'
+  gem 'rswag-specs'
   gem 'byebug', :platforms => [:mri, :mingw, :x64_mingw]
 end
 
